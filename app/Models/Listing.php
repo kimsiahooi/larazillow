@@ -9,4 +9,6 @@ class Listing extends Model
 {
     /** @use HasFactory<\Database\Factories\ListingFactory> */
     use HasFactory;
+
+    protected $fillable = ['beds', 'baths', 'area', 'city', 'code', 'street', 'street_nr', 'price'];
 }
