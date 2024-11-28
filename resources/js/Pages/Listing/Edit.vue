@@ -88,7 +88,7 @@ const form = useForm({
 });
 
 const update = () => {
-    form.put(`/listing/${props.listing.id}`);
+    form.put(route("listing.update", props.listing.id));
 };
 </script>
 
