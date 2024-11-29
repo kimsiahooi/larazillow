@@ -45,7 +45,7 @@
                     type="password"
                     id="password_confirmation"
                     class="input"
-                    v-model="form.password"
+                    v-model="form.password_confirmation"
                 />
             </div>
             <div class="mt-4">
@@ -67,5 +67,5 @@ const form = useForm({
     password_confirmation: null,
 });
 
-const register = () => form.post(route(""));
+const register = () => form.post(route("user-account.store"));
 </script>
