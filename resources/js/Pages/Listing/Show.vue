@@ -16,27 +16,29 @@
             <Box>
                 <template #header> Monthly Payment </template>
                 <div>
-                    <label for="">Interest rate (2.5%)</label>
+                    <label for="">Interest rate ({{ interestRate }}%)</label>
                     <input
                         type="range"
                         min="0.1"
                         max="30"
                         step="0.1"
+                        v-model.number="interestRate"
                         class="w-full h-4 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
                     />
 
-                    <label for="">Duration (25 years)</label>
+                    <label for="">Duration ({{ duration }} years)</label>
                     <input
                         type="range"
                         min="3"
                         max="25"
                         step="1"
+                        v-model.number="duration"
                         class="w-full h-4 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
                     />
 
                     <div class="text-gray-600 dark:text-gray-300 mt-2">
                         <div class="text-gray-400">Your monthly payment</div>
-                        <Price :price="500" class="text-3xl" />
+                        <Price :price="monthlyPayment" class="text-3xl" />
                     </div>
                 </div>
             </Box>
@@ -49,8 +51,25 @@ import ListingAddress from "@/Components/ListingAddress.vue";
 import ListingSpace from "@/Components/ListingSpace.vue";
 import Price from "@/Components/Price.vue";
 import Box from "@/Components/UI/Box.vue";
+import { ref, computed } from "vue";
 
-defineProps({
+const interestRate = ref(2.5);
+const duration = ref(25);
+
+const props = defineProps({
     listing: Object,
+});
+
+const monthlyPayment = computed(() => {
+    const principle = props.listing.price;
+    const monthlyInterest = interestRate.value / 100 / 12;
+    const numberOfPaymentMonths = duration.value * 12;
+
+    return (
+        (principle *
+            monthlyInterest *
+            Math.pow(1 + monthlyInterest, numberOfPaymentMonths)) /
+        (Math.pow(1 + monthlyInterest, numberOfPaymentMonths) - 1)
+    );
 });
 </script>
