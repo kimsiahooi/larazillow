@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="login">
-        <div class="w-1/2 mx-auto">
+        <div class="md:w-1/2 mx-auto">
             <div>
                 <label for="email" class="label">E-mail</label>
                 <input
