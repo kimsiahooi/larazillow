@@ -32,7 +32,7 @@
 import { useForm } from "@inertiajs/vue3";
 const form = useForm({
     email: null,
-    passwor: null,
+    password: null,
 });
 
 const login = () => form.post(route("login.store"));
