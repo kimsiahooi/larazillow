@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 class AuthContoller extends Controller
 {
-    public function create() {}
+    public function create()
+    {
+        return inertia('Auth/Login');
+    }
 
     public function store() {}
 
