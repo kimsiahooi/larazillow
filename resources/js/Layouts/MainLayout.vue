@@ -12,10 +12,15 @@
                 >
                     <Link :href="route('listing.index')">Larazillow</Link>
                 </div>
-                <div>
+                <div class="flex items-center gap-4" v-if="user">
+                    <div class="text-sm text-gray-500">{{ user.name }}</div>
                     <Link :href="route('listing.create')" class="btn-primary">
                         + New Listing
                     </Link>
+                    <div>Logout</div>
+                </div>
+                <div v-else>
+                    <Link :href="route('login')">Sign-In</Link>
                 </div>
             </nav>
         </div>
@@ -38,4 +43,6 @@ import { computed } from "vue";
 
 const page = usePage();
 const flashSuccess = computed(() => page.props.flash.success);
+
+const user = computed(() => page.props.user);
 </script>
