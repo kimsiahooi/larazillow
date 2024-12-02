@@ -3,7 +3,7 @@
         <div class="grid grid-cols-6 gap-4">
             <div class="col-span-2">
                 <label class="label"> Beds </label>
-                <input type="text" v-model.number="form.beds" class="input" />
+                <input type="number" v-model.number="form.beds" class="input" min="0" max="20" />
                 <div v-if="form.errors.beds" class="input-error">
                     {{ form.errors.beds }}
                 </div>
@@ -11,7 +11,7 @@
 
             <div class="col-span-2">
                 <label class="label"> Baths </label>
-                <input type="text" v-model.number="form.baths" class="input" />
+                <input type="number" v-model.number="form.baths" class="input" min="0" max="20" />
                 <div v-if="form.errors.baths" class="input-error">
                     {{ form.errors.baths }}
                 </div>
@@ -19,7 +19,7 @@
 
             <div class="col-span-2">
                 <label class="label"> Area </label>
-                <input type="text" v-model.number="form.area" class="input" />
+                <input type="number" v-model.number="form.area" class="input" min="15" max="1500" />
                 <div v-if="form.errors.area" class="input-error">
                     {{ form.errors.area }}
                 </div>
@@ -51,7 +51,7 @@
 
             <div class="col-span-2">
                 <label class="label"> Street Nr </label>
-                <input type="text" v-model="form.street_nr" class="input" />
+                <input type="number" v-model.number="form.street_nr" class="input" min="1" max="1000" />
                 <div v-if="form.errors.street_nr" class="input-error">
                     {{ form.errors.street_nr }}
                 </div>
@@ -59,7 +59,7 @@
 
             <div class="col-span-6">
                 <label class="label"> Price </label>
-                <input type="text" v-model.number="form.price" class="input" />
+                <input type="number" v-model.number="form.price" class="input" min="1" max="20000000" />
                 <div v-if="form.errors.price" class="input-error">
                     {{ form.errors.price }}
                 </div>
@@ -82,7 +82,7 @@ const form = useForm({
     city: null,
     street: null,
     code: null,
-    street_nr: null,
+    street_nr: 0,
     price: 0,
 });
 
