@@ -13,17 +13,15 @@ return new class extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->unsignedTinyInteger('beds');
             $table->unsignedTinyInteger('baths');
             $table->unsignedSmallInteger('area');
-
             $table->tinyText('city');
             $table->tinyText('code');
             $table->tinyText('street');
             $table->tinyText('street_nr');
-
             $table->unsignedInteger('price');
+            $table->timestamps();
         });
     }
 
