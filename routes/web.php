@@ -8,4 +8,4 @@ Route::get('/', function () {
 });
 
 Route::resource('listing', ListingController::class)
-    ->only(['index', 'show', 'create']);
+    ->only(['index', 'show', 'create', 'store']);
