@@ -7,4 +7,5 @@ Route::get('/', function () {
     return inertia('Index/Index');
 });
 
-Route::resource('listing', ListingController::class)->only(['index', 'show']);
+Route::resource('listing', ListingController::class)
+    ->only(['index', 'show', 'create']);
