@@ -7,5 +7,4 @@ Route::get('/', function () {
     return inertia('Index/Index');
 });
 
-Route::resource('listing', ListingController::class)
-    ->except(['destroy']);
+Route::resource('listing', ListingController::class);
