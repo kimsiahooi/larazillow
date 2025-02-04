@@ -33,10 +33,3 @@ const page = usePage();
 
 const flashSuccess = computed(() => page.props.flash.success);
 </script>
-
-<style scoped>
-.success {
-    background-color: green;
-    color: white;
-}
-</style>
